@@ -1,0 +1,38 @@
+<div class="top-container">
+  <%= form_tag(cards_path, method: :post) do %>
+    <%= submit_tag('Create Backup', class: 'btn draw-border') %>
+  <% end %>
+  <%= form_tag(cardsdestroy_path, method: :delete) do %>
+    <%= submit_tag('Purge Backup ', class: 'btn draw-border') %>
+  <% end %>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  </br>
+  <%= f.label :hit_point_eq %>
+  <%= f.search_field :hp_eq %>
+  </br>
+  <%= f.label :rarity_eq %>
+  <%= f.search_field :rarity_eq %>
+  </br>
+  <%= f.submit 'Search Backup', class: 'btn draw-border' %>
+<% end %>
+</div>
+<div class="container">
+  <% @cards.each do |card| %>
+    <div class="card">
+      <img src=<%= card.image_url %> alt="Person" class="card__image">
+      <p class="card__name"><%= card.name %></p>
+      <div class="grid-container">
+        <div class="grid-child-posts">
+          <%= card.rarity %>
+        </div>
+        <div class="grid-child-followers">
+          <%= card.hp%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
