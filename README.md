@@ -19,3 +19,10 @@ rbenv local 2.7.0
 # To run tests
 
 bundle exec rspec
+
+# To see docs for code
+
+```
+yard server
+```
+visit http://localhost:8808
